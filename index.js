@@ -225,7 +225,7 @@ module.exports = function(slugFields, options) {
       
       if (!options.alwaysRecreate && !slugFieldsModified && currentSlug) return next();
 
-      var newSlug = options.generator(removeDiacritics(toSlugify), options.separator);
+      var newSlug = options.generator(removeDiacritics(toSlugify), options.separator, toSlugify);
 
       if (options.indexSparse && newSlug === options.undefinedVal) {
         doc.set(options.field, undefined);
